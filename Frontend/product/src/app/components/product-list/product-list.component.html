@@ -1,0 +1,28 @@
+<div *ngIf="products.length">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.ProductId }}</td>
+          <td>{{ product.ProductName }}</td>
+          <td>{{ product.CategoryName }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div>
+      <button *ngFor="let page of [].constructor(totalPages); let i = index" (click)="goToPage(i + 1)">
+        {{ i + 1 }}
+      </button>
+    </div>
+  </div>
+  <div *ngIf="!products.length">
+    No products available.
+  </div>
+  
